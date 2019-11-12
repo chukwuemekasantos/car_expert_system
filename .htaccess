@@ -1,0 +1,10 @@
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteEngine on 
+# Rewrite for single.php?tid=xxxxx
+RewriteRule ^single=([0-9]+)$ single?tid=$1 [NC,L]
+RewriteRule ^apartment-([0-9]+)$ single?tid=$1 [NC,L]
+
+ErrorDocument 404 /404.php
